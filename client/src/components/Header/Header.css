@@ -1,0 +1,142 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(5, 5, 5, 0.95);
+  z-index: 1000;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--neon-primary);
+  text-shadow: 0 0 10px var(--neon-primary), 0 0 20px var(--neon-secondary);
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-links li {
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease;
+  color: var(--text-primary);
+  position: relative;
+}
+
+.nav-links li:hover {
+  color: var(--neon-primary);
+  text-shadow: 0 0 10px var(--neon-primary), 0 0 20px var(--neon-secondary);
+}
+
+.nav-links li::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--neon-primary);
+  box-shadow: 0 0 10px var(--neon-primary);
+  transition: width 0.3s ease;
+}
+
+.nav-links li:hover::after {
+  width: 100%;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 2rem;
+  height: 2rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.hamburger span {
+  width: 2rem;
+  height: 0.25rem;
+  background: var(--neon-primary);
+  border-radius: 10px;
+  transition: all 0.3s linear;
+  position: relative;
+  transform-origin: 1px;
+  box-shadow: 0 0 5px var(--neon-primary);
+}
+
+@media (max-width: 866px) {
+  .nav {
+    position: relative;
+    padding-right: 3rem;
+  }
+
+  .hamburger {
+    display: flex;
+    position: absolute;
+    right: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .nav-links {
+    position: fixed;
+    right: -100%;
+    top: 70px;
+    flex-direction: column;
+    background-color: rgba(5, 5, 5, 0.95);
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    padding: 2rem 0;
+  }
+
+  .nav-links.active {
+    right: 0;
+    height: 100vh;
+    margin: 0;
+    margin-top: -1rem;
+    padding: 0;
+    padding-top: 2rem;
+  }
+
+  .nav-links li {
+    margin: 1.5rem;
+  }
+
+  /* Animation du hamburger */
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(0px, 11px);
+    position: absolute;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(0px, -11px);
+    position: absolute;
+    top: 2.25rem;
+    z-index: 1000;
+  }
+}

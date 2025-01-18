@@ -1,0 +1,119 @@
+.contact-container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.contact-content {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+
+.contact-info {
+  text-align: left;
+}
+
+.contact-info ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 2rem;
+}
+@media screen and (max-width: 768px) {
+  .contact-info ul {
+    margin-top: 0;
+  }
+}
+
+.contact-info li {
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.1rem;
+}
+
+.contact-info i {
+  color: var(--neon-primary);
+  font-size: 1.5rem;
+  width: 30px;
+  text-align: center;
+  text-shadow: 0 0 5px var(--neon-primary);
+}
+
+.contact-info a {
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.contact-info a:hover {
+  color: var(--neon-primary);
+  text-shadow: 0 0 5px var(--neon-primary);
+}
+
+.contact-form {
+  width: 100%;
+}
+
+.contact-form form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.form-group {
+  width: 100%;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--text-secondary);
+  border-radius: 4px;
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--neon-primary);
+  box-shadow: 0 0 10px var(--neon-primary);
+}
+
+.form-group textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.submit-btn {
+  padding: 1rem 2rem;
+  background: transparent;
+  border: 2px solid var(--neon-primary);
+  color: var(--neon-primary);
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  width: 200px;
+}
+
+.submit-btn:hover {
+  background: var(--neon-primary);
+  color: var(--dark-bg);
+  box-shadow: 0 0 20px var(--neon-primary);
+}
+
+@media (max-width: 768px) {
+  .contact-content {
+    grid-template-columns: 1fr;
+  }
+}

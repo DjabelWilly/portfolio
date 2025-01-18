@@ -1,0 +1,110 @@
+.projects-container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.project-card {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px var(--neon-secondary);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: var(--neon-secondary);
+}
+
+.project-card h3 {
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  text-shadow: none;
+  margin-top: -0.5rem;
+  transition: all 0.3s ease;
+}
+
+.project-card:hover h3 {
+  color: var(--neon-secondary);
+  text-shadow: 0 0 10px var(--neon-secondary);
+}
+
+.project-description {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  flex-grow: 1;
+}
+
+.project-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: auto;
+}
+
+.project-stack span {
+  background: rgba(0, 255, 128, 0.1);
+  color: #0f8;
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.project-stack span i {
+  font-size: 1.1rem;
+}
+
+.project-stack span:hover {
+  background: #0f8;
+  color: var(--dark-bg);
+  box-shadow: 0 0 10px #0f8;
+}
+
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.project-card[onclick] {
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card[onclick]::after {
+  content: "Voir le projet →";
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  color: var(--neon-primary);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-card[onclick]:hover::after {
+  opacity: 1;
+}
+
+.tailwind-icon {
+  width: 1.1rem;
+  height: 1.1rem;
+}
