@@ -3,6 +3,13 @@
   max-width: 1200px;
   margin: 0 auto;
 }
+@media screen and (max-width: 768px) {
+  .education-container {
+    padding: 1rem;
+    margin: 0;
+    width: 100%;
+  }
+}
 
 .education-timeline {
   margin-top: 2rem;
@@ -16,9 +23,10 @@
   grid-template-columns: 200px 1fr;
   gap: 2rem;
   padding: 2rem;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.12);
   border-radius: 10px;
   transition: transform 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .education-item:hover {

@@ -49,3 +49,9 @@ section h2 {
   background-color: var(--dark-bg);
   min-height: calc(100vh - 80px);
 }
+
+@media screen and (max-width: 768px) {
+  section {
+    padding: 2rem;
+  }
+}

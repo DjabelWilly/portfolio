@@ -3,6 +3,13 @@
   max-width: 1200px;
   margin: 0 auto;
 }
+@media screen and (max-width: 768px) {
+  .projects-container {
+    padding: 1rem;
+    margin: 0;
+    width: 100%;
+  }
+}
 
 .projects-grid {
   display: grid;
@@ -14,7 +21,7 @@
 .project-card {
   background: rgba(255, 255, 255, 0.12);
   border-radius: 10px;
-  padding: 2rem;
+  padding: 1.5rem;
   transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
