@@ -17,8 +17,25 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Ici vous pouvez ajouter la logique d'envoi du formulaire
-    console.log(formData);
+
+    fetch("http://localhost:5000/send-email", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => {
+        if (response.ok) {
+          console.log("Email envoyé avec succès !");
+          setFormData({ name: "", email: "", message: "" });
+        } else {
+          throw new Error("Échec de l'envoi de l'email.");
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   return (
@@ -28,27 +45,26 @@ const Contact = () => {
         <div className="contact-info">
           <ul>
             <li>
-              <i className="fas fa-envelope"></i>
-              <a href="mailto:djabel.willy@gmail.com">djabel.willy@gmail.com</a>
+              <a href="mailto:djabel.willy@gmail.com">
+                <i className="fas fa-envelope"></i>
+              </a>
             </li>
             <li>
-              <i className="fab fa-linkedin"></i>
               <a
                 href="https://www.linkedin.com/in/willy-djabelkhir-dwwb/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Willy Djabelkhir
+                <i className="fab fa-linkedin"></i>
               </a>
             </li>
             <li>
-              <i className="fab fa-github"></i>
               <a
                 href="https://github.com/DjabelWilly"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                DjabelWilly
+                <i className="fab fa-github"></i>
               </a>
             </li>
           </ul>
