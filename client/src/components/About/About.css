@@ -30,7 +30,7 @@
 .about-description {
   font-size: 1.2rem;
   color: var(--text-primary);
-  padding: 0;
+  padding: 1rem;
   margin: 0;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 10px;

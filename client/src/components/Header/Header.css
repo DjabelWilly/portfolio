@@ -11,9 +11,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  justify-items: center;
   max-width: 1200px;
   margin: 0 auto;
   padding: 1rem 2rem;
+}
+@media screen and (max-width: 400px) {
+  .nav {
+    padding: 1rem;
+  }
 }
 
 .logo {
@@ -22,16 +28,23 @@
   color: var(--neon-primary);
   text-shadow: 0 0 10px var(--neon-primary), 0 0 20px var(--neon-secondary);
 }
+@media screen and (max-width: 580px) {
+  .logo {
+    font-size: 1.2rem;
+  }
+}
 
 .nav-links {
   display: flex;
   list-style: none;
-  gap: 2rem;
+  gap: 1rem;
+  margin: 0;
 }
 
 .nav-links li {
+  display: inline;
+  margin-right: 1rem;
   cursor: pointer;
-  padding: 0.5rem 1rem;
   transition: all 0.3s ease;
   color: var(--text-primary);
   position: relative;
@@ -56,6 +69,17 @@
 
 .nav-links li:hover::after {
   width: 100%;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #ffcc00;
 }
 
 .hamburger {
@@ -112,21 +136,19 @@
     right: 0;
     height: 100vh;
     margin: 0;
-    margin-top: -1rem;
-    padding: 0;
-    padding-top: 2rem;
+    gap: 2rem;
+    font-size: 1.3rem;
   }
 
   .nav-links li {
-    margin: 1.5rem;
+    margin: 1rem;
   }
 
   /* Animation du hamburger */
   .hamburger.active span:nth-child(1) {
     transform: rotate(45deg) translate(0px, 11px);
     position: absolute;
-    top: 0;
-    z-index: 1000;
+    top: -0.25rem;
   }
 
   .hamburger.active span:nth-child(2) {
@@ -136,7 +158,58 @@
   .hamburger.active span:nth-child(3) {
     transform: rotate(-45deg) translate(0px, -11px);
     position: absolute;
-    top: 2.25rem;
-    z-index: 1000;
+    top: 2rem;
   }
+}
+
+@media screen and (max-width: 400px) {
+  .hamburger {
+    right: 0.7rem;
+  }
+}
+
+.social-links ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+}
+@media screen and (max-width: 866px) {
+  .social-links ul {
+    margin-inline: 4rem;
+  }
+}
+@media screen and (max-width: 390px) {
+  .social-links ul {
+    margin-inline: 2rem;
+  }
+  .social-links li a {
+    margin-inline: 0 !important;
+    padding-inline: 0;
+  }
+}
+
+.social-links li {
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+}
+
+.social-links i {
+  color: var(--neon-primary);
+  font-size: 1.5rem;
+  width: 30px;
+  text-align: center;
+  text-shadow: 0 0 5px var(--neon-primary);
+}
+
+.social-links a {
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  margin-inline: 0.5rem;
+}
+
+.social-links a:hover {
+  color: var(--neon-primary);
+  text-shadow: 0 0 5px var(--neon-primary);
 }

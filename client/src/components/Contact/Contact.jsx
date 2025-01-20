@@ -41,70 +41,41 @@ const Contact = () => {
   return (
     <div className="contact-container">
       <h2>Contact</h2>
-      <div className="contact-content">
-        <div className="contact-info">
-          <ul>
-            <li>
-              <a href="mailto:djabel.willy@gmail.com">
-                <i className="fas fa-envelope"></i>
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.linkedin.com/in/willy-djabelkhir-dwwb/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <i className="fab fa-linkedin"></i>
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://github.com/DjabelWilly"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <i className="fab fa-github"></i>
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div className="contact-form">
-          <form onSubmit={handleSubmit}>
-            <div className="form-group">
-              <input
-                type="text"
-                name="name"
-                placeholder="Votre nom"
-                value={formData.name}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div className="form-group">
-              <input
-                type="email"
-                name="email"
-                placeholder="Votre email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div className="form-group">
-              <textarea
-                name="message"
-                placeholder="Votre message"
-                value={formData.message}
-                onChange={handleChange}
-                required
-              ></textarea>
-            </div>
-            <button type="submit" className="submit-btn">
-              Envoyer
-            </button>
-          </form>
-        </div>
+      <div className="contact-form">
+        <form onSubmit={handleSubmit}>
+          <div className="form-group">
+            <input
+              type="text"
+              name="name"
+              placeholder="Votre nom"
+              value={formData.name}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <input
+              type="email"
+              name="email"
+              placeholder="Votre email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <textarea
+              name="message"
+              placeholder="Votre message"
+              value={formData.message}
+              onChange={handleChange}
+              required
+            ></textarea>
+          </div>
+          <button type="submit" className="submit-btn">
+            Envoyer
+          </button>
+        </form>
       </div>
     </div>
   );

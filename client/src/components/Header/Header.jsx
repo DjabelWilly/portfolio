@@ -13,7 +13,34 @@ const Header = () => {
   return (
     <header className="header">
       <nav className="nav">
-        <div className="logo">Mon Portfolio</div>
+        <div className="logo">Willy Djabelkhir</div>
+        <div className="social-links">
+          <ul>
+            <li>
+              <a href="mailto:djabel.willy@gmail.com">
+                <i className="fas fa-envelope"></i>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.linkedin.com/in/willy-djabelkhir-dwwb/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i className="fab fa-linkedin"></i>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://github.com/DjabelWilly"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i className="fab fa-github"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
 
         {/* Bouton hamburger */}
         <div

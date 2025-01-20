@@ -1,8 +1,9 @@
 require('dotenv').config();
 const express = require("express");
-const sgMail = require('@sendgrid/mail');
+const nodemailer = require("nodemailer");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const validator = require("validator");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -11,28 +12,55 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(bodyParser.json());
 
-// Configurer SendGrid
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+// Config Nodemailer
+const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS
+    }
+});
 
 // Route pour envoyer l'e-mail
 app.post("/send-email", (req, res) => {
-    const { name, email, message } = req.body;
+    let { name, email, message } = req.body;
 
-    const msg = {
+    // Validation et nettoyage des données avec la bibliothèque "validator"
+    name = validator.escape(name);
+    email = validator.normalizeEmail(email);
+    message = validator.escape(message);
+
+    // Vérifier si l'email est valide
+    if (!validator.isEmail(email)) {
+        return res.status(400).send("Adresse e-mail invalide.");
+    }
+
+    // Limiter les caractères autorisés dans le nom et le message
+    const nameRegex = /^[a-zA-Z\s]+$/; // Autoriser uniquement les lettres et les espaces
+    const messageRegex = /^[a-zA-Z0-9\s.,!?'"-]*$/; // Autoriser lettres, chiffres et quelques caractères spéciaux
+
+    if (!nameRegex.test(name)) {
+        return res.status(400).send("Nom invalide. Seules les lettres et les espaces sont autorisés.");
+    }
+
+    if (!messageRegex.test(message)) {
+        return res.status(400).send("Message invalide. Seules les lettres, chiffres et certains caractères spéciaux sont autorisés.");
+    }
+
+    const mailOptions = {
+        from: process.env.EMAIL_USER, // e-mail de l'expéditeur
         to: process.env.EMAIL_USER, // e-mail de destination
-        from: email, // e-mail de l'expéditeur
         subject: `Nouveau message de ${name}`,
-        text: message,
+        text: `Nom: ${name}\nEmail: ${email}\nMessage: ${message}`,
     };
 
-    sgMail.send(msg)
-        .then(() => {
-            res.status(200).send("Email envoyé avec succès !");
-        })
-        .catch((error) => {
-            console.error("Erreur SendGrid:", error.response.body);
-            res.status(500).send("Erreur lors de l'envoi de l'email.");
-        });
+    transporter.sendMail(mailOptions, (error) => {
+        if (error) {
+            console.error("Erreur lors de l'envoi de l'e-mail:", error);
+            return res.status(500).send("Erreur lors de l'envoi de l'email.");
+        }
+        res.status(200).send("Email envoyé avec succès !");
+    });
 });
 
 // Démarre le serveur
