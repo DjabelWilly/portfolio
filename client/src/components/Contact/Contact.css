@@ -1,9 +1,11 @@
 .contact-container {
+  position: relative;
   padding: 2rem;
   width: 40vw;
-  margin: 0;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .contact-form {
@@ -30,11 +32,15 @@
 
 .form-group {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .form-group input,
 .form-group textarea {
   width: 100%;
+  max-width: 400px;
   padding: 1rem;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid var(--text-secondary);
@@ -73,4 +79,29 @@
   background: var(--neon-primary);
   color: var(--dark-bg);
   box-shadow: 0 0 20px var(--neon-primary);
+}
+
+.message-sent {
+  width: 100%;
+  background: rgb(255, 255, 255);
+  padding: 0.5rem;
+  border-radius: 4px;
+  position: absolute;
+  top: 3.5rem;
+  right: 0;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 1s ease, transform 1s ease;
+  visibility: hidden;
+}
+
+.message-sent.show {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+.message-sent p {
+  color: green;
+  font-weight: bold;
 }

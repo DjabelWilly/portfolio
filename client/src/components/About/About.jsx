@@ -8,10 +8,19 @@ const About = () => {
       <div className="about-content">
         <div className="about-text">
           <p className="about-description">
-            Développeur web motivé et créatif, prêt à relever de nouveaux défis
-            pour concevoir des solutions digitales innovantes. Je suis en quête
-            d'une opportunité pour contribuer à des projets ambitieux.
+            "Bonjour, je suis Willy, développeur web passionné par les nouvelles
+            technologies. <br />
+            Je conçois des applications et des sites web modernes, performants
+            et responsives. <br />
           </p>
+        </div>
+        <div className="btn-about">
+          <a href="#projects">
+            <button className="about-btn">Voir mes projets</button>
+          </a>
+          <a href="#contact">
+            <button className="about-btn">Contactez-moi</button>
+          </a>
         </div>
       </div>
     </div>

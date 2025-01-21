@@ -31,18 +31,19 @@ app.post("/send-email", (req, res) => {
     message = validator.escape(message);
 
     // Vérifier si l'email est valide
-    if (!validator.isEmail(email)) {
+    const emailRegex = /^[a-z]+@[a-z]+\.[a-z]+$/; // Autoriser uniquement les minuscules et le caractère "@"
+    if (!emailRegex.test(email)) {
         return res.status(400).send("Adresse e-mail invalide.");
     }
 
-    // Limiter les caractères autorisés dans le nom et le message
+    // Limiter les caractères autorisés dans le nom
     const nameRegex = /^[a-zA-Z\s]+$/; // Autoriser uniquement les lettres et les espaces
-    const messageRegex = /^[a-zA-Z0-9\s.,!?'"-]*$/; // Autoriser lettres, chiffres et quelques caractères spéciaux
-
     if (!nameRegex.test(name)) {
         return res.status(400).send("Nom invalide. Seules les lettres et les espaces sont autorisés.");
     }
 
+    // Limiter les caractères autorisés dans le message
+    const messageRegex = /^[a-zA-Z0-9\s.,!?'"-]*$/; // Autoriser lettres, chiffres et quelques caractères spéciaux
     if (!messageRegex.test(message)) {
         return res.status(400).send("Message invalide. Seules les lettres, chiffres et certains caractères spéciaux sont autorisés.");
     }

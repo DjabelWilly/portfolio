@@ -195,11 +195,9 @@
 }
 
 .social-links i {
-  color: var(--neon-primary);
   font-size: 1.5rem;
   width: 30px;
   text-align: center;
-  text-shadow: 0 0 5px var(--neon-primary);
 }
 
 .social-links a {

@@ -64,8 +64,8 @@
 }
 
 .project-stack span {
-  background: rgba(0, 255, 128, 0.1);
-  color: #0f8;
+  background: rgba(0, 255, 128, 0.13);
+  color: #4fffc7;
   padding: 0.3rem 0.8rem;
   border-radius: 15px;
   font-size: 0.9rem;
@@ -77,12 +77,6 @@
 
 .project-stack span i {
   font-size: 1.1rem;
-}
-
-.project-stack span:hover {
-  background: #0f8;
-  color: var(--dark-bg);
-  box-shadow: 0 0 10px #0f8;
 }
 
 @media (max-width: 768px) {
