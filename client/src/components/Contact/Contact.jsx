@@ -2,6 +2,17 @@ import React, { useState } from "react";
 import validator from "validator";
 import "./Contact.css";
 
+/**
+ * Composant Contact pour la soumission d'un formulaire.
+ *
+ * @component
+ * @example
+ * const handleSubmit = (e) => {
+ *   // Gérer la soumission du formulaire
+ * }
+ *
+ * @returns {JSX.Element} Le formulaire de contact.
+ */
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -10,6 +21,10 @@ const Contact = () => {
   });
   const [messageSent, setMessageSent] = useState(false);
 
+  /**
+   * Gestionnaire de changement pour le formulaire.
+   * @param {Event} e - L'événement de changement.
+   */
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -17,25 +32,33 @@ const Contact = () => {
     });
   };
 
+  /**
+   * Gestionnaire de soumission du formulaire.
+   * @param {Event} e - L'événement de soumission.
+   */
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // Nettoyage des données du formulaire
     const cleanedName = validator.escape(formData.name);
     const cleanedEmail = validator.normalizeEmail(formData.email);
     const cleanedMessage = validator.escape(formData.message);
 
+    // Vérification de l'adresse e-mail
     const emailRegex = /^[a-z]+@[a-z]+\.[a-z]+$/;
     if (!emailRegex.test(cleanedEmail)) {
       alert("Veuillez entrer une adresse e-mail valide.");
       return;
     }
 
+    // Vérification du nom
     const nameRegex = /^[a-zA-Z\s]+$/;
     if (!nameRegex.test(cleanedName)) {
       alert("Nom invalide. Seules les lettres et les espaces sont autorisés.");
       return;
     }
 
+    // Vérification du message
     const messageRegex = /^[a-zA-Z0-9\s.,!?'"-]*$/;
     if (!messageRegex.test(cleanedMessage)) {
       alert(
@@ -44,6 +67,7 @@ const Contact = () => {
       return;
     }
 
+    // Envoi de l'email vers la route send-email
     fetch("http://localhost:5000/send-email", {
       method: "POST",
       headers: {
@@ -88,6 +112,7 @@ const Contact = () => {
               value={formData.name}
               onChange={handleChange}
               required
+              autoComplete="name"
             />
           </div>
           <div className="form-group">
@@ -98,6 +123,7 @@ const Contact = () => {
               value={formData.email}
               onChange={handleChange}
               required
+              autoComplete="email"
             />
           </div>
           <div className="form-group">
@@ -107,6 +133,7 @@ const Contact = () => {
               value={formData.message}
               onChange={handleChange}
               required
+              autoComplete="off"
             ></textarea>
           </div>
           <button type="submit" className="submit-btn">

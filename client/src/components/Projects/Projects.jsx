@@ -15,7 +15,7 @@ const Projects = () => {
         >
           <h3>video_games</h3>
           <p className="project-description">
-            Monitoring des ventes (CRUD, filtre, graphique)
+            Monitoring des ventes (CRUD, filtre, ...)
           </p>
           <div className="project-stack">
             <span>

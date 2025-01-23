@@ -12,16 +12,14 @@
 }
 
 .education-timeline {
-  margin-top: 2rem;
   display: flex;
   flex-direction: column;
-  gap: 3rem;
 }
 
 .education-item {
   display: grid;
   grid-template-columns: 200px 1fr;
-  gap: 2rem;
+  margin-top: 1.5rem;
   padding: 2rem;
   background: rgba(255, 255, 255, 0.073);
   border-radius: 10px;
@@ -80,6 +78,7 @@
   .education-item {
     grid-template-columns: 1fr;
     gap: 1rem;
+    margin-inline: 1.5rem;
   }
 
   .education-date {

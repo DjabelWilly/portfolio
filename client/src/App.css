@@ -5,6 +5,7 @@
   --darker-bg: #050505c4;
   --text-primary: #fff;
   --text-secondary: #888;
+  overflow-x: hidden;
 }
 
 .App {
@@ -28,6 +29,7 @@
 section {
   min-height: 100vh;
   padding: 2rem 0;
+  margin-top: 2rem;
   width: 100vw;
   margin: 0;
   display: flex;
@@ -40,12 +42,12 @@ section h2 {
   color: var(--neon-primary);
   text-shadow: 0 0 10px var(--neon-primary);
   margin-bottom: 1rem;
-  margin-top: 4rem;
+  margin-top: 2rem;
 }
 
 #about {
   background-color: var(--darker-bg);
-  min-height: calc(100vh - 80px);
+  padding: 0;
 }
 
 #projects {
@@ -58,7 +60,7 @@ section h2 {
 
 #contact {
   background-color: var(--dark-bg);
-  min-height: calc(100vh - 80px);
+  min-height: calc(100vh - 50px);
 }
 
 @media screen and (max-width: 768px) {
