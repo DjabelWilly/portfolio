@@ -25,12 +25,32 @@
   }
 }
 
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 .logo img {
-  width: 100px;
+  width: 80px;
 }
 @media screen and (max-width: 680px) {
   .logo img {
-    width: 80px;
+    width: 60px;
+  }
+}
+
+.logo p {
+  color: var(--text-secondary);
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.1rem;
+  text-align: start;
+}
+@media screen and (max-width: 1028px) {
+  .logo p {
+    display: none;
   }
 }
 

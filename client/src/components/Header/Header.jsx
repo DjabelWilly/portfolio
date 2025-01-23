@@ -15,6 +15,9 @@ const Header = ({ scrollToSection }) => {
             onClick={() => scrollToSection("about")}
             style={{ cursor: "pointer" }}
           />
+          <p>
+            CONCEPTION & <br /> DÉVELOPPEMENT WEB
+          </p>
         </div>
         <div className="social-links">
           <ul>
@@ -25,7 +28,7 @@ const Header = ({ scrollToSection }) => {
             </li>
             <li>
               <a
-                href="https://www.linkedin.com/in/willy-djabelkhir-dwwb/"
+                href="https://www.linkedin.com/in/willy-djabelkhir-dwwb"
                 target="_blank"
                 rel="noopener noreferrer"
               >
