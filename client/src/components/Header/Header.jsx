@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Header.css";
-import logo from "../../assets/logo3.png";
+import logo from "../../assets/logo.png";
 
 const Header = ({ scrollToSection }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false); // State pour le menu hamburger
