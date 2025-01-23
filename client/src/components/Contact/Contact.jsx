@@ -98,7 +98,7 @@ const Contact = () => {
 
   return (
     <div className="contact-container">
-      <h2>Contact</h2>
+      <h2>Restons en contact</h2>
       <div className={`message-sent ${messageSent ? "show" : ""}`}>
         {messageSent && <p>Email envoyé avec succès !</p>}
       </div>

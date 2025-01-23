@@ -7,12 +7,29 @@ import Education from './components/Education/Education';
 import Contact from './components/Contact/Contact';
 
 function App() {
+
+  /**
+   * Fonction pour faire défiler la page vers une section spécifiée.
+   * @param {string} sectionId - L'ID de la section vers laquelle faire défiler.
+   */
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    const headerOffset = 60;
+    const elementPosition = element.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <div className="App">
-      <Header />
+      <Header scrollToSection={scrollToSection} />
       <main className="main-content">
         <section id="about">
-          <About />
+          <About scrollToSection={scrollToSection} />
         </section>
         <section id="projects">
           <Projects />

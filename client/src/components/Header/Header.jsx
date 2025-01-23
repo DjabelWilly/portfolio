@@ -1,26 +1,21 @@
 import React, { useState } from "react";
 import "./Header.css";
+import logo from "../../assets/logo3.png";
 
-const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    const headerOffset = 60;
-    const elementPosition = element.getBoundingClientRect().top;
-    const offsetPosition = elementPosition + window.scrollY - headerOffset;
-
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: "smooth",
-    });
-    setIsMenuOpen(false); // Ferme le menu après le clic
-  };
+const Header = ({ scrollToSection }) => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // State pour le menu hamburger
 
   return (
     <header className="header">
       <nav className="nav">
-        <div className="logo">Willy Djabelkhir</div>
+        <div className="logo">
+          <img
+            src={logo}
+            alt=""
+            onClick={() => scrollToSection("about")}
+            style={{ cursor: "pointer" }}
+          />
+        </div>
         <div className="social-links">
           <ul>
             <li>
@@ -60,10 +55,38 @@ const Header = () => {
         </div>
 
         <ul className={`nav-links ${isMenuOpen ? "active" : ""}`}>
-          <li onClick={() => scrollToSection("about")}>À propos</li>
-          <li onClick={() => scrollToSection("projects")}>Projets</li>
-          <li onClick={() => scrollToSection("education")}>Formation</li>
-          <li onClick={() => scrollToSection("contact")}>Contact</li>
+          <li
+            onClick={() => {
+              scrollToSection("about");
+              setIsMenuOpen(false);
+            }}
+          >
+            À propos
+          </li>
+          <li
+            onClick={() => {
+              scrollToSection("projects");
+              setIsMenuOpen(false);
+            }}
+          >
+            Projets
+          </li>
+          <li
+            onClick={() => {
+              scrollToSection("education");
+              setIsMenuOpen(false);
+            }}
+          >
+            Formation
+          </li>
+          <li
+            onClick={() => {
+              scrollToSection("contact");
+              setIsMenuOpen(false);
+            }}
+          >
+            Contact
+          </li>
         </ul>
       </nav>
     </header>

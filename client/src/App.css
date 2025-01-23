@@ -28,7 +28,7 @@
 
 section {
   min-height: 100vh;
-  padding: 2rem 0;
+  padding: 1.5rem 0;
   margin-top: 2rem;
   width: 100vw;
   margin: 0;
@@ -47,11 +47,12 @@ section h2 {
 
 #about {
   background-color: var(--darker-bg);
-  padding: 0;
+  min-height: 90vh;
 }
 
 #projects {
   background-color: var(--dark-bg);
+  padding: 0;
 }
 
 #education {
