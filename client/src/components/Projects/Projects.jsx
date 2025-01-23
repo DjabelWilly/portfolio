@@ -13,9 +13,12 @@ const Projects = () => {
           }
           style={{ cursor: "pointer" }}
         >
-          <h3>video_games</h3>
+          <h3>video games sales dashboard</h3>
           <p className="project-description">
-            Monitoring des ventes (CRUD, filtre, ...)
+            Tableau de bord de vente est un outil de monitoring pour suivre et
+            analyser les performances des équipes. Il permet de visualiser les
+            données de vente, d'ajouter de nouvelles données dans la BDD, de
+            modifier et de supprimer les données existantes.
           </p>
           <div className="project-stack">
             <span>
@@ -40,9 +43,14 @@ const Projects = () => {
         </div>
 
         <div className="project-card">
-          <h3>nearbyMTP</h3>
+          <h3>nearby MTP</h3>
           <p className="project-description">
-            Recherche de lieux/activités autour de Montpellier
+            Application qui permet aux utilisateurs de rechercher des lieux et
+            des activités à Montpellier et ses alentours. Il utilise l'API
+            Google Places pour récupérer les résultats de recherche et les
+            afficher sur une carte. Les utilisateurs peuvent filtrer les
+            résultats par activité et par rayon et afficher des informations
+            détaillées sur chaque lieu.
           </p>
           <div className="project-stack">
             <span>
@@ -80,7 +88,10 @@ const Projects = () => {
         >
           <h3>Aurora</h3>
           <p className="project-description">
-            Site vitrine d'une agence de voyages spécialisés
+            Site vitrine d'une agence de voyages spécialisés dans les
+            expéditions dans la nature arctique. Le site offre une expérience
+            immersive pour les visiteurs, avec des informations détaillées sur
+            les services, destinations et activités.
           </p>
           <div className="project-stack">
             <span>

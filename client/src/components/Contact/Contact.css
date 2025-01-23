@@ -13,6 +13,27 @@
   }
 }
 
+.paper-plane {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  top: 200px;
+  right: -200px;
+}
+@media (max-width: 850px) {
+  .paper-plane {
+    width: 150px;
+    height: 150px;
+    top: 100px;
+    right: -150px;
+  }
+}
+@media (max-width: 550px) {
+  .paper-plane {
+    display: none;
+  }
+}
+
 .contact-form {
   width: 100%;
   display: flex;

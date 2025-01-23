@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import validator from "validator";
 import "./Contact.css";
+import paperPlane from "../../assets/paper.svg";
 
 /**
  * Composant Contact pour la soumission d'un formulaire.
@@ -99,8 +100,9 @@ const Contact = () => {
   return (
     <div className="contact-container">
       <h2>Restons en contact</h2>
+      <img src={paperPlane} alt="Avion en papier" className="paper-plane" />
       <div className={`message-sent ${messageSent ? "show" : ""}`}>
-        {messageSent && <p>Email envoyé avec succès !</p>}
+        {messageSent && <p>Message envoyé avec succès !</p>}
       </div>
       <div className="contact-form">
         <form onSubmit={handleSubmit}>

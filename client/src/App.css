@@ -1,8 +1,8 @@
 :root {
   --neon-primary: #0ff;
   --neon-secondary: #f0f;
-  --dark-bg: #0a0a0ad5;
-  --darker-bg: #050505c4;
+  --darker-bg: #0a0a0aee;
+  --dark-bg: #050505c4;
   --text-primary: #fff;
   --text-secondary: #888;
   overflow-x: hidden;
@@ -46,7 +46,7 @@ section h2 {
 }
 
 #about {
-  background-color: var(--darker-bg);
+  background-color: var(--dark-bg);
   min-height: 90vh;
 }
 
@@ -56,7 +56,7 @@ section h2 {
 }
 
 #education {
-  background-color: var(--darker-bg);
+  background-color: var(--dark-bg);
 }
 
 #contact {
