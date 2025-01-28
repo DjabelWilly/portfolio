@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   right: 0;
-  background-color: rgba(5, 5, 5, 0.95);
+  background-color: black;
   z-index: 1000;
   display: flex;
   justify-content: center;
@@ -13,15 +13,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  justify-items: center;
   width: 100%;
   max-width: 1400px;
   margin: 0;
-  padding: 1rem;
+  padding: 0.5rem;
 }
-@media screen and (max-width: 400px) {
-  .nav {
-    padding: 0.5rem;
+@media screen and (max-width: 558px) {
+  .header {
+    flex-direction: column;
   }
 }
 
@@ -48,11 +47,6 @@
   letter-spacing: 0.1rem;
   text-align: start;
 }
-@media screen and (max-width: 1028px) {
-  .logo p {
-    display: none;
-  }
-}
 
 .nav-links {
   display: flex;
@@ -63,12 +57,12 @@
 
 .nav-links li {
   display: inline;
-  margin-right: 1rem;
   font-size: 1.15rem;
   cursor: pointer;
   transition: all 0.3s ease;
   color: var(--text-primary);
   position: relative;
+  margin-inline: 1rem;
 }
 
 .nav-links li:hover {
@@ -126,12 +120,50 @@
   box-shadow: 0 0 5px var(--neon-primary);
 }
 
-@media (max-width: 866px) {
-  .nav {
-    position: relative;
-    padding-right: 3rem;
+.social-links ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+}
+@media screen and (max-width: 966px) {
+  .social-links {
+    position: absolute;
+    right: 6rem;
   }
+}
 
+.social-links li a {
+  margin-inline: 0 !important;
+  padding-inline: 0;
+}
+
+.social-links li {
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+  margin-inline: 1rem;
+}
+
+.social-links i {
+  font-size: 1.5rem;
+  width: 30px;
+  text-align: center;
+}
+
+.social-links a {
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  margin-inline: 0.5rem;
+}
+
+.social-links a:hover {
+  color: var(--neon-primary);
+  text-shadow: 0 0 5px var(--neon-primary);
+}
+
+/* hamburger écrans inférieurs à 1028px */
+@media (max-width: 1028px) {
   .hamburger {
     display: flex;
     position: absolute;
@@ -162,7 +194,7 @@
   }
 
   .nav-links li {
-    margin: 1rem;
+    margin: 0.5rem;
   }
 
   /* Animation du hamburger */
@@ -183,53 +215,20 @@
   }
 }
 
-@media screen and (max-width: 400px) {
-  .hamburger {
-    right: 0.7rem;
+@media screen and (max-width: 548px) {
+  .social-links i.fas.fa-envelope {
+    position: fixed;
+    right: 1.5rem;
+    top: 6rem;
   }
-}
-
-.social-links ul {
-  display: flex;
-  list-style: none;
-  padding: 0;
-}
-@media screen and (max-width: 866px) {
-  .social-links ul {
-    margin-inline: 4rem;
+  .social-links i.fab.fa-linkedin {
+    position: fixed;
+    right: 1.5rem;
+    top: 9rem;
   }
-}
-@media screen and (max-width: 390px) {
-  .social-links ul {
-    margin-inline: 2rem;
+  .social-links i.fab.fa-github {
+    position: fixed;
+    right: 1.5rem;
+    top: 12rem;
   }
-  .social-links li a {
-    margin-inline: 0 !important;
-    padding-inline: 0;
-  }
-}
-
-.social-links li {
-  display: flex;
-  align-items: center;
-  font-size: 1.1rem;
-  margin-inline: 1rem;
-}
-
-.social-links i {
-  font-size: 1.5rem;
-  width: 30px;
-  text-align: center;
-}
-
-.social-links a {
-  color: var(--text-primary);
-  text-decoration: none;
-  transition: all 0.3s ease;
-  margin-inline: 0.5rem;
-}
-
-.social-links a:hover {
-  color: var(--neon-primary);
-  text-shadow: 0 0 5px var(--neon-primary);
 }

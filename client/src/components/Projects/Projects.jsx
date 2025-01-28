@@ -15,10 +15,10 @@ const Projects = () => {
         >
           <h3>video games sales dashboard</h3>
           <p className="project-description">
-            Tableau de bord de vente est un outil de monitoring pour suivre et
-            analyser les performances des équipes. Il permet de visualiser les
-            données de vente, d'ajouter de nouvelles données dans la BDD, de
-            modifier et de supprimer les données existantes.
+            Cette application est un outil de monitoring des ventes d'un
+            commerce de jeux video. Elle permet de suivre et d'analyser les
+            ventes par région, de visualiser les données, d'ajouter de nouvelles
+            données, de modifier et de supprimer les données existantes.
           </p>
           <div className="project-stack">
             <span>
@@ -42,11 +42,15 @@ const Projects = () => {
           </div>
         </div>
 
-        <div className="project-card">
+        <div
+          className="project-card"
+          onClick={() => window.open("nearby-mtp.vercel.app", "_blank")}
+          style={{ cursor: "pointer" }}
+        >
           <h3>nearby MTP</h3>
           <p className="project-description">
-            Application qui permet aux utilisateurs de rechercher des lieux et
-            des activités à Montpellier et ses alentours. Il utilise l'API
+            Cette application permet aux utilisateurs de rechercher des lieux et
+            des activités à Montpellier et ses alentours. Elle utilise l'API
             Google Places pour récupérer les résultats de recherche et les
             afficher sur une carte. Les utilisateurs peuvent filtrer les
             résultats par activité et par rayon et afficher des informations
