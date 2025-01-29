@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   right: 0;
-  background-color: black;
+  background-color: var(--darker-bg);
   z-index: 1000;
   display: flex;
   justify-content: center;

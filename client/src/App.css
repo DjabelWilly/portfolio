@@ -23,7 +23,6 @@
 
 .main-content {
   padding-top: 60px;
-  background-color: var(--dark-bg);
   width: 100%;
 }
 
@@ -63,5 +62,5 @@ section h2 {
 
 #contact {
   background-color: var(--dark-bg);
-  min-height: calc(100vh - 60px);
+  min-height: calc(100vh - 62px);
 }
