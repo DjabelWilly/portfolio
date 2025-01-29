@@ -28,7 +28,15 @@
     right: -150px;
   }
 }
-@media (max-width: 550px) {
+@media (max-width: 610px) {
+  .paper-plane {
+    width: 120px;
+    height: 120px;
+    top: 200px;
+    right: -100px;
+  }
+}
+@media (max-width: 477px) {
   .paper-plane {
     display: none;
   }

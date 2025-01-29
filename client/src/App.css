@@ -16,8 +16,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
-  width: 100vw;
+  width: 100%;
   margin: 0;
   padding: 0;
 }
@@ -25,13 +24,14 @@
 .main-content {
   padding-top: 60px;
   background-color: var(--dark-bg);
+  width: 100%;
 }
 
 section {
   min-height: 100vh;
-  padding: 1.5rem 0;
+  padding: 0;
   margin-top: 2rem;
-  width: 100vw;
+  width: 100%;
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -54,7 +54,7 @@ section h2 {
 
 #projects {
   background-color: var(--dark-bg);
-  padding: 0;
+  /* padding: 0; */
 }
 
 #education {
@@ -63,5 +63,5 @@ section h2 {
 
 #contact {
   background-color: var(--dark-bg);
-  min-height: calc(100vh - 50px);
+  min-height: calc(100vh - 60px);
 }

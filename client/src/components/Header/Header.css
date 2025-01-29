@@ -13,7 +13,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+  width: 100vw;
   max-width: 1400px;
   margin: 0;
   padding: 0.5rem;
@@ -125,23 +125,36 @@
   list-style: none;
   padding: 0;
 }
-@media screen and (max-width: 966px) {
+@media screen and (max-width: 1028px) {
   .social-links {
     position: absolute;
-    right: 6rem;
+    right: 20rem;
   }
 }
-
-.social-links li a {
-  margin-inline: 0 !important;
-  padding-inline: 0;
+@media screen and (max-width: 910px) {
+  .social-links {
+    position: absolute;
+    right: 15rem;
+  }
+}
+@media screen and (max-width: 740px) {
+  .social-links {
+    position: absolute;
+    right: 10rem;
+  }
+}
+@media screen and (max-width: 640px) {
+  .social-links {
+    position: absolute;
+    right: 8rem;
+  }
 }
 
 .social-links li {
   display: flex;
   align-items: center;
   font-size: 1.1rem;
-  margin-inline: 1rem;
+  padding-inline: 0.7rem;
 }
 
 .social-links i {
@@ -154,7 +167,6 @@
   color: var(--text-primary);
   text-decoration: none;
   transition: all 0.3s ease;
-  margin-inline: 0.5rem;
 }
 
 .social-links a:hover {
@@ -195,6 +207,8 @@
 
   .nav-links li {
     margin: 0.5rem;
+    font-size: 1.2rem;
+    margin-top: 2rem;
   }
 
   /* Animation du hamburger */
