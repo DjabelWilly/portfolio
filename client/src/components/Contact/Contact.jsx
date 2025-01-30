@@ -40,25 +40,23 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    //--------- Nettoyage et Validation des entrées------------
     // Nettoyage des données du formulaire
     const cleanedName = validator.escape(formData.name);
     const cleanedEmail = validator.normalizeEmail(formData.email);
     const cleanedMessage = validator.escape(formData.message);
-
     // Vérification de l'adresse e-mail
     const emailRegex = /^[a-z]+@[a-z]+\.[a-z]+$/;
     if (!emailRegex.test(cleanedEmail)) {
       alert("Veuillez entrer une adresse e-mail valide.");
       return;
     }
-
     // Vérification du nom
     const nameRegex = /^[a-zA-Z\s]+$/;
     if (!nameRegex.test(cleanedName)) {
       alert("Nom invalide. Seules les lettres et les espaces sont autorisés.");
       return;
     }
-
     // Vérification du message
     const messageRegex = /^[a-zA-Z0-9\s.,!?'"-]*$/;
     if (!messageRegex.test(cleanedMessage)) {
@@ -67,6 +65,7 @@ const Contact = () => {
       );
       return;
     }
+    //---------------------------------------------------------
 
     // Envoi de l'email vers la route send-email
     fetch(`${API_URL}/send-email`, {
