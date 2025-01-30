@@ -69,17 +69,21 @@ const Contact = () => {
     }
 
     // Envoi de l'email vers la route send-email
-    fetch("http://localhost:5000/send-email", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name: cleanedName,
-        email: cleanedEmail,
-        message: cleanedMessage,
-      }),
-    })
+    fetch(
+      "http://localhost:5000/send-email" || // dev local
+        `https://${process.env.REACT_APP_SERVER_URL}/send-email`, // prod (vercel)
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: cleanedName,
+          email: cleanedEmail,
+          message: cleanedMessage,
+        }),
+      }
+    )
       .then((response) => {
         if (response.ok) {
           console.log("Email envoyé avec succès !");
