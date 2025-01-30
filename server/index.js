@@ -4,9 +4,9 @@ const nodemailer = require("nodemailer");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const validator = require("validator");
-
+const port = process.env.PORT;
 const app = express();
-// const PORT = process.env.PORT || 5000;
+
 
 // Configuration CORS
 const allowedOrigins = [
@@ -74,6 +74,6 @@ app.post("/send-email", (req, res) => {
 });
 
 // Démarre le serveur
-app.listen(PORT, () => {
-    console.log(`Serveur en cours d'exécution sur le port ${PORT}`);
+app.listen(port, () => {
+    console.log(`Serveur en cours d'exécution sur le port ${port}`);
 }); 
