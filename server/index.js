@@ -7,17 +7,12 @@ const validator = require("validator");
 const port = process.env.PORT;
 const app = express();
 
-
-// // Configuration CORS
-// const allowedOrigins = [
-//     'http://localhost:3000',                          // autorise le port 3000 en mode Développement (local)
-//     'https://portfolio-willy-djabelkhir.vercel.app/'  // autorise l'url de Production
-// ];
-
-// Middleware
+// Config Cors
 app.use(cors({
     origin: ['http://localhost:3000', 'https://portfolio-willy-djabelkhir.vercel.app'],
 }));
+
+// Middlewares
 app.use(bodyParser.json());
 app.use(express.json());
 
