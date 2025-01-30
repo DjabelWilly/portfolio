@@ -8,15 +8,15 @@ const port = process.env.PORT;
 const app = express();
 
 
-// Configuration CORS
-const allowedOrigins = [
-    'http://localhost:3000',                          // autorise le port 3000 en mode Développement (local)
-    'https://portfolio-willy-djabelkhir.vercel.app/'  // autorise l'url de Production
-];
+// // Configuration CORS
+// const allowedOrigins = [
+//     'http://localhost:3000',                          // autorise le port 3000 en mode Développement (local)
+//     'https://portfolio-willy-djabelkhir.vercel.app/'  // autorise l'url de Production
+// ];
 
 // Middleware
 app.use(cors({
-    origin: allowedOrigins  // accepte uniquement les origines listées
+    origin: ['http://localhost:3000', 'https://portfolio-willy-djabelkhir.vercel.app'],
 }));
 app.use(bodyParser.json());
 app.use(express.json());
