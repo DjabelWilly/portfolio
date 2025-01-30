@@ -6,11 +6,20 @@ const cors = require("cors");
 const validator = require("validator");
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+// const PORT = process.env.PORT || 5000;
+
+// Configuration CORS
+const allowedOrigins = [
+    'http://localhost:3000',                   // Développement local
+    'https://portfolio-server-wdj.vercel.app'  // Production
+];
 
 // Middleware
-app.use(cors());
+app.use(cors({
+    origin: allowedOrigins  // accepte uniquement les origines listées
+}));
 app.use(bodyParser.json());
+app.use(express.json());
 
 // Config Nodemailer
 const transporter = nodemailer.createTransport({
