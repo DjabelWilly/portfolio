@@ -7,12 +7,11 @@ const validator = require("validator");
 const port = process.env.PORT;
 const app = express();
 
-// Config Cors
-app.use(cors({
-    origin: ['http://localhost:3000', 'https://portfolio-willy-djabelkhir.vercel.app'],
-}));
 
-// Middlewares
+// Middleware
+app.use(cors({
+    origin: ['http://localhost:3000', 'https://willy-djabelkhir.vercel.app'],
+}));
 app.use(bodyParser.json());
 app.use(express.json());
 
