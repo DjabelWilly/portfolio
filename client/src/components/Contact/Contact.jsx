@@ -3,99 +3,86 @@ import validator from "validator";
 import "./Contact.css";
 import paperPlane from "../../assets/paper.svg";
 import { API_URL } from "../../config/api";
-/**
- * Composant Contact pour la soumission d'un formulaire.
- *
- * @component
- * @example
- * const handleSubmit = (e) => {
- *   // Gérer la soumission du formulaire
- * }
- *
- * @returns {JSX.Element} Le formulaire de contact.
- */
+
 const Contact = () => {
+  // État du formulaire
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
   });
-  const [messageSent, setMessageSent] = useState(false);
+  const [messageSent, setMessageSent] = useState(false); // Indique si le message a été envoyé
+  const [errorMessage, setErrorMessage] = useState(""); // Contient un message d'erreur si applicable
 
-  /**
-   * Gestionnaire de changement pour le formulaire.
-   * @param {Event} e - L'événement de changement.
-   */
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+  // Validation du nom : lettres et accents uniquement
+  const validateName = (name) => {
+    return /^[A-Za-zÀ-ÖØ-öø-ÿ\s-]+$/.test(name);
   };
 
-  /**
-   * Gestionnaire de soumission du formulaire.
-   * @param {Event} e - L'événement de soumission.
-   */
+  // Validation email : format email avec caractères autorisés
+  const validateEmail = (email) => {
+    return validator.isEmail(email) && /^[a-zA-Z0-9@._-]+$/.test(email);
+  };
+
+  // Validation du message : lettres, chiffres et accents uniquement
+  const validateMessage = (message) => {
+    return /^[A-Za-zÀ-ÖØ-öø-ÿ0-9\s.,!?'-]+$/.test(message);
+  };
+
+  // Gestion des changements d'input avec validation dynamique
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+
+    let error = "";
+    switch (name) {
+      case "name":
+        if (!validateName(value)) {
+          error = "Le nom ne doit contenir que des lettres et des accents.";
+        }
+        break;
+      case "email":
+        if (!validateEmail(value)) {
+          error = "Veuillez entrer une adresse e-mail valide.";
+        }
+        break;
+      case "message":
+        if (!validateMessage(value)) {
+          error =
+            "Le message ne doit contenir que des lettres, chiffres et accents.";
+        }
+        break;
+      default:
+        break;
+    }
+    setErrorMessage(error);
+  };
+
+  // Gestion de la soumission du formulaire
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (errorMessage) return; // Empêche l'envoi si une erreur est présente
 
-    //--------- Nettoyage et Validation des entrées------------
-    // Nettoyage des données du formulaire
-    const cleanedName = validator.escape(formData.name);
-    const cleanedEmail = validator.normalizeEmail(formData.email);
-    const cleanedMessage = validator.escape(formData.message);
-
-    // Vérification de l'adresse e-mail
-    const emailRegex = /^[a-z]+@[a-z]+\.[a-z]+$/;
-    if (!emailRegex.test(cleanedEmail)) {
-      alert("Veuillez entrer une adresse e-mail valide.");
-      return;
-    }
-    // Vérification du nom
-    const nameRegex = /^[a-zA-Z\s]+$/;
-    if (!nameRegex.test(cleanedName)) {
-      alert("Nom invalide. Seules les lettres et les espaces sont autorisés.");
-      return;
-    }
-    // Vérification du message
-    const messageRegex = /^[a-zA-Z0-9\s.,!?'"-]*$/;
-    if (!messageRegex.test(cleanedMessage)) {
-      alert(
-        "Message invalide. Seules les lettres, chiffres et certains caractères spéciaux sont autorisés."
-      );
-      return;
-    }
-    //---------------------------------------------------------
-
-    // Envoi de l'email vers la route send-email
     fetch(`${API_URL}/send-email`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        // "Access-Control-Allow-Origin": "*",
       },
-      body: JSON.stringify({
-        name: cleanedName,
-        email: cleanedEmail,
-        message: cleanedMessage,
-      }),
+      body: JSON.stringify(formData),
     })
       .then((response) => {
         if (response.ok) {
-          console.log("Email envoyé avec succès !");
-          setFormData({ name: "", email: "", message: "" });
+          setFormData({ name: "", email: "", message: "" }); // Réinitialise le formulaire
           setMessageSent(true);
-          setTimeout(() => {
-            setMessageSent(false);
-          }, 2500);
+          setTimeout(() => setMessageSent(false), 2500); // Cache le message après 2.5s
         } else {
-          throw new Error("Échec de l'envoi de l'email.");
+          throw new Error("Échec de l'envoi de l'email");
         }
       })
-      .catch((error) => {
-        console.error(error);
-      });
+      .catch(() => setErrorMessage("Échec de l'envoi de l'email"));
   };
 
   return (
@@ -143,6 +130,7 @@ const Contact = () => {
             Envoyer
           </button>
         </form>
+        {errorMessage && <div className="error-message">{errorMessage}</div>}
       </div>
     </div>
   );

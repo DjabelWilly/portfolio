@@ -7,7 +7,6 @@ const validator = require("validator");
 const port = process.env.PORT;
 const app = express();
 
-
 // Middleware
 app.use(cors({
     origin: ['http://localhost:3000', 'https://willy-djabelkhir.vercel.app'],
@@ -24,33 +23,37 @@ const transporter = nodemailer.createTransport({
     }
 });
 
+// Fonction de validation pour le nom, l'email et le message
+const validateName = (name) => {
+    return /^[A-Za-zÀ-ÖØ-öø-ÿ\s-]+$/.test(name); // Lettres, accents et espaces
+};
+
+const validateEmail = (email) => {
+    return validator.isEmail(email) && /^[a-zA-Z0-9@._-]+$/.test(email); // Validation stricte du format email
+};
+
+const validateMessage = (message) => {
+    return /^[A-Za-zÀ-ÖØ-öø-ÿ0-9\s.,!?'-]+$/.test(message); // Lettres, chiffres et quelques caractères spéciaux
+};
+
 // Route pour envoyer l'e-mail
 app.post("/send-email", (req, res) => {
-    let { name, email, message } = req.body;
+    const { name, email, message } = req.body;
 
-    // Validation et nettoyage des données avec la bibliothèque "validator"
-    name = validator.escape(name);
-    email = validator.normalizeEmail(email);
-    message = validator.escape(message);
+    // Validation des champs du formulaire
+    if (!validateName(name)) {
+        return res.status(400).send("Le nom ne doit contenir que des lettres, des accents et des espaces.");
+    }
 
-    // Vérifier si l'email est valide
-    const emailRegex = /^[a-z]+@[a-z]+\.[a-z]+$/; // Autoriser uniquement les minuscules et le caractère "@"
-    if (!emailRegex.test(email)) {
+    if (!validateEmail(email)) {
         return res.status(400).send("Adresse e-mail invalide.");
     }
 
-    // Limiter les caractères autorisés dans le nom
-    const nameRegex = /^[a-zA-Z\s]+$/; // Autoriser uniquement les lettres et les espaces
-    if (!nameRegex.test(name)) {
-        return res.status(400).send("Nom invalide. Seules les lettres et les espaces sont autorisés.");
+    if (!validateMessage(message)) {
+        return res.status(400).send("Le message ne doit contenir que des lettres, chiffres et certains caractères spéciaux.");
     }
 
-    // Limiter les caractères autorisés dans le message
-    const messageRegex = /^[a-zA-Z0-9\s.,!?'"-]*$/; // Autoriser lettres, chiffres et quelques caractères spéciaux
-    if (!messageRegex.test(message)) {
-        return res.status(400).send("Message invalide. Seules les lettres, chiffres et certains caractères spéciaux sont autorisés.");
-    }
-
+    // Configuration de l'email
     const mailOptions = {
         from: process.env.EMAIL_USER, // e-mail de l'expéditeur
         to: process.env.EMAIL_USER, // e-mail de destination
@@ -58,6 +61,7 @@ app.post("/send-email", (req, res) => {
         text: `Nom: ${name}\nEmail: ${email}\nMessage: ${message}`,
     };
 
+    // Envoi de l'email
     transporter.sendMail(mailOptions, (error) => {
         if (error) {
             console.error("Erreur lors de l'envoi de l'e-mail:", error);
@@ -70,4 +74,4 @@ app.post("/send-email", (req, res) => {
 // Démarre le serveur
 app.listen(port, () => {
     console.log(`Serveur en cours d'exécution sur le port ${port}`);
-}); 
+});
