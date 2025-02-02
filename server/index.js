@@ -42,7 +42,7 @@ app.post("/send-email", (req, res) => {
 
     // Validation des champs du formulaire
     if (!validateName(name)) {
-        return res.status(400).send("Le nom ne doit contenir que des lettres, des accents et des espaces.");
+        return res.status(400).send("Le nom ne doit contenir que des lettres.");
     }
 
     if (!validateEmail(email)) {
@@ -50,7 +50,7 @@ app.post("/send-email", (req, res) => {
     }
 
     if (!validateMessage(message)) {
-        return res.status(400).send("Le message ne doit contenir que des lettres, chiffres et certains caractères spéciaux.");
+        return res.status(400).send("Le message ne doit contenir que des lettres et des chiffres.");
     }
 
     // Configuration de l'email

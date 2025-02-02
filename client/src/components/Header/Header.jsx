@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import "./Header.css";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/img/logo.png";
 
-const Header = ({ scrollToSection }) => {
+const Header = ({ scrollToSection, fadeInMain }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false); // State pour le menu hamburger
 
   return (
-    <header className="header">
+    <header className={`header ${fadeInMain ? "show" : ""}`}>
       <nav className="nav">
         <div className="logo">
           <img

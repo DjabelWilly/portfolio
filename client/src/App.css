@@ -1,3 +1,10 @@
+@font-face {
+  font-family: "Golden Age";
+  src: url("../src/assets/fonts/Golden\ Age\.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 :root {
   --neon-primary: #0ff;
   --neon-secondary: #f0f;
@@ -24,6 +31,14 @@
 .main-content {
   padding-top: 60px;
   width: 100%;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 2s ease-in-out, transform 1.5s ease-in-out;
+}
+
+.main-content.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 section {
@@ -50,10 +65,11 @@ section h2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: var(--neon-primary);
-  font-size: 8rem;
-  font-weight: bold;
-  width: 100%;
+  color: whitesmoke;
+  font-family: "Golden Age", sans-serif;
+  font-size: 4rem;
+  letter-spacing: 1rem;
+  width: 80%;
   height: 100vh;
   text-transform: uppercase;
   transition: opacity 1s ease-in-out;
@@ -67,6 +83,19 @@ section h2 {
   opacity: 0;
 }
 
+@media screen and (max-width: 780px) {
+  .intro-text {
+    font-size: 3rem;
+    letter-spacing: 0.5rem;
+  }
+}
+@media screen and (max-width: 490px) {
+  .intro-text {
+    font-size: 2rem;
+    letter-spacing: 0.5rem;
+  }
+}
+
 #about {
   background-color: var(--dark-bg);
   min-height: 90vh;
@@ -74,7 +103,6 @@ section h2 {
 
 #projects {
   background-color: var(--dark-bg);
-  /* padding: 0; */
 }
 
 #education {

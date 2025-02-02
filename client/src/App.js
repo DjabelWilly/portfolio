@@ -6,38 +6,46 @@ import Projects from './components/Projects/Projects';
 import Education from './components/Education/Education';
 import Contact from './components/Contact/Contact';
 
-// Tableau contenant les mots à afficher
-const introText = ["conception", "developpement", "web"];
+// Tableau contenant les mots à afficher pendant l'intro
+const introText = ["conception", "developpement", "<web/>"];
 
 function App() {
-  const [index, setIndex] = useState(0);  // Suivi du mot affiché
-  const [showContent, setShowContent] = useState(false);  // Affichage du contenu principal
-  const [fade, setFade] = useState(true);  // État pour gérer le fade-in/fade-out
+  const [index, setIndex] = useState(0);  // Suivi du mot affiché (intro)
+  const [showContent, setShowContent] = useState(false);  // Affichage du contenu principal à true
+  const [fade, setFade] = useState(true);  // Gère le fade-in/fade-out (intro)
+  const [fadeInMain, setFadeInMain] = useState(false); // Gère le fade-in du contenu principal
 
   useEffect(() => {
     if (index < introText.length) {
-      const fadeOutTimeout = setTimeout(() => {
-        setFade(false);  // Commencer le fade-out
-      }, 1000);  // Temps de fade-in avant fade-out
+      const handleNextWord = () => { // Fonction pour passer au mot suivant
+        setIndex(prevIndex => prevIndex + 1);
+        setFade(true); // Activer le fade-in
+      };
 
-      const nextWordTimeout = setTimeout(() => {
-        setIndex(prevIndex => prevIndex + 1);  // Passer au mot suivant
-        setFade(true);  // Commencer le fade-in pour le mot suivant
-      }, 2500);  // Temps total avant le changement de mot (fade-out + transition)
+      const fadeOutTimeout = setTimeout(() => { // Fade-out apres 1s
+        setFade(false);
+      }, 1000);
+
+      const nextWordTimeout = setTimeout(handleNextWord, 2500); // Passer au mot suivant apres 2.5s
 
       return () => {
-        clearTimeout(fadeOutTimeout);  // Nettoyage du fadeOut
-        clearTimeout(nextWordTimeout);  // Nettoyage du changement de mot
+        clearTimeout(fadeOutTimeout); // Nettoyage des timeouts
+        clearTimeout(nextWordTimeout);
       };
-    } else {
-      // Afficher le contenu principal après la fin du cycle des mots
-      const showMainContentTimeout = setTimeout(() => {
-        setShowContent(true);
-      }, 1000);  // Attendre la fin du fade-out avant d'afficher le contenu
-
-      return () => clearTimeout(showMainContentTimeout);  // Nettoyage
     }
-  }, [index]);
+    setShowContent(true); // Affichage du contenu principal
+  }, [index]); // Dependance sur l'index
+
+  // Déclencher le fade-in du contenu principal après un court délai
+  useEffect(() => {
+    if (showContent) {
+      const fadeInTimeout = setTimeout(() => {
+        setFadeInMain(true);
+      }, 500);
+
+      return () => clearTimeout(fadeInTimeout);
+    }
+  }, [showContent]);
 
 
   // Fonction pour faire défiler la page vers une section spécifiée.
@@ -61,8 +69,8 @@ function App() {
         </div>
       ) : (
         <>
-          <Header scrollToSection={scrollToSection} />
-          <main className="main-content">
+          <Header scrollToSection={scrollToSection} fadeInMain={fadeInMain} />
+          <main className={`main-content ${fadeInMain ? "show" : ""}`}>
             <section id="about">
               <About scrollToSection={scrollToSection} />
             </section>

@@ -1,9 +1,18 @@
 import React, { useState } from "react";
 import validator from "validator";
 import "./Contact.css";
-import paperPlane from "../../assets/paper.svg";
+import paperPlane from "../../assets/img/paper.svg";
 import { API_URL } from "../../config/api";
 
+/**
+ * Composant Contact
+ *
+ * Ce composant affiche un formulaire de contact pour envoyer un email.
+ * Il gère la validation des champs du formulaire et l'envoi de l'email.
+ * Il affiche également un message de réussite si l'email est envoyé avec succès.
+ *
+ * @returns {React.ReactElement}
+ */
 const Contact = () => {
   // État du formulaire
   const [formData, setFormData] = useState({
@@ -41,7 +50,7 @@ const Contact = () => {
     switch (name) {
       case "name":
         if (!validateName(value)) {
-          error = "Le nom ne doit contenir que des lettres et des accents.";
+          error = "Le nom ne doit contenir que des lettres.";
         }
         break;
       case "email":
@@ -52,7 +61,7 @@ const Contact = () => {
       case "message":
         if (!validateMessage(value)) {
           error =
-            "Le message ne doit contenir que des lettres, chiffres et accents.";
+            "Le message ne doit contenir que des lettres et des chiffres.";
         }
         break;
       default:
@@ -66,6 +75,7 @@ const Contact = () => {
     e.preventDefault();
     if (errorMessage) return; // Empêche l'envoi si une erreur est présente
 
+    // Envoi de l'email vers l'API
     fetch(`${API_URL}/send-email`, {
       method: "POST",
       headers: {
@@ -76,7 +86,7 @@ const Contact = () => {
       .then((response) => {
         if (response.ok) {
           setFormData({ name: "", email: "", message: "" }); // Réinitialise le formulaire
-          setMessageSent(true);
+          setMessageSent(true); // Affiche le message de succé
           setTimeout(() => setMessageSent(false), 2500); // Cache le message après 2.5s
         } else {
           throw new Error("Échec de l'envoi de l'email");
