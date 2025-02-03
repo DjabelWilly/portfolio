@@ -44,7 +44,7 @@ const Projects = () => {
 
         <div
           className="project-card"
-          onClick={() => window.open("nearby-mtp.vercel.app", "_blank")}
+          onClick={() => window.open("https://nearby-mtp.vercel.app", "_blank")}
           style={{ cursor: "pointer" }}
         >
           <h3>nearby MTP</h3>
