@@ -40,7 +40,7 @@
   box-shadow: 0 0 10px rgba(0, 255, 255, 0.35);
   min-height: 200px;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 800px) {
   .project-card {
     width: 70%;
   }
@@ -59,8 +59,19 @@
   top: 0.8rem;
   right: 1.5rem;
   color: var(--neon-secondary);
-
   transition: all 0.3s ease;
+}
+@media screen and (max-width: 988px) {
+  .project-card:hover::after {
+    font-size: 0.8rem;
+    top: 0.5rem;
+    right: 0.5rem;
+  }
+}
+@media screen and (max-width: 650px) {
+  .project-card:hover::after {
+    content: "";
+  }
 }
 
 .project-card h3 {
