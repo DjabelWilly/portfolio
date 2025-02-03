@@ -53,6 +53,16 @@
   border-color: var(--neon-secondary);
 }
 
+.project-card:hover::after {
+  content: "Voir le projet ↗️";
+  position: absolute;
+  top: 0.8rem;
+  right: 1.5rem;
+  color: var(--neon-secondary);
+
+  transition: all 0.3s ease;
+}
+
 .project-card h3 {
   color: var(--text-primary);
   font-size: 1.2rem;
@@ -102,7 +112,7 @@
   font-size: 1.1rem;
 }
 
-.project-card[onclick] {
+/* .project-card[onclick] {
   cursor: pointer;
   position: relative;
   overflow: hidden;
@@ -120,7 +130,7 @@
 
 .project-card[onclick]:hover::after {
   opacity: 1;
-}
+} */
 
 .tailwind-icon {
   width: 1.1rem;
