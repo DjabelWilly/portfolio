@@ -1,17 +1,31 @@
 @font-face {
-  font-family: "Golden Age";
-  src: url("../src/assets/fonts/Golden\ Age\.ttf") format("truetype");
+  font-family: "Draken";
+  src: url("../src/assets/fonts/Draken.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
 :root {
   --neon-primary: #0ff;
-  --neon-secondary: #f0f;
+  --neon-secondary: #4fffc7;
   --darker-bg: #0a0a0aee;
   --dark-bg: #050505c4;
-  --text-primary: #fff;
-  --text-secondary: #888;
+  --text-primary: #ededed;
+  --text-secondary: #9a9a9a;
   overflow-x: hidden;
 }
 
@@ -55,45 +69,11 @@ section {
 }
 
 section h2 {
+  font-family: "Draken", sans-serif;
   color: var(--neon-primary);
   text-shadow: 0 0 10px var(--neon-primary);
   margin-bottom: 1rem;
   margin-top: 2rem;
-}
-
-.intro-text {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: whitesmoke;
-  font-family: "Golden Age", sans-serif;
-  font-size: 4rem;
-  letter-spacing: 1rem;
-  width: 80%;
-  height: 100vh;
-  text-transform: uppercase;
-  transition: opacity 1s ease-in-out;
-}
-
-.fade-in {
-  opacity: 1;
-}
-
-.fade-out {
-  opacity: 0;
-}
-
-@media screen and (max-width: 780px) {
-  .intro-text {
-    font-size: 3rem;
-    letter-spacing: 0.5rem;
-  }
-}
-@media screen and (max-width: 490px) {
-  .intro-text {
-    font-size: 2rem;
-    letter-spacing: 0.2rem;
-  }
 }
 
 #about {

@@ -4,7 +4,7 @@ import "./Projects.css";
 const Projects = () => {
   return (
     <div className="projects-container">
-      <h2>Projets</h2>
+      <h2>PROJETS</h2>
       <div className="projects-grid">
         <div
           className="project-card"
@@ -13,7 +13,7 @@ const Projects = () => {
           }
           style={{ cursor: "pointer" }}
         >
-          <h3>video games sales dashboard</h3>
+          <h3>Video Games Sales Dashboard</h3>
           <p className="project-description">
             Cette application est un outil de monitoring des ventes d'un
             commerce de jeux video. Elle permet de suivre et d'analyser les
@@ -47,7 +47,7 @@ const Projects = () => {
           onClick={() => window.open("https://nearby-mtp.vercel.app", "_blank")}
           style={{ cursor: "pointer" }}
         >
-          <h3>nearby MTP</h3>
+          <h3>Nearby MTP</h3>
           <p className="project-description">
             Cette application permet aux utilisateurs de rechercher des lieux et
             des activités à Montpellier et ses alentours. Elle utilise l'API

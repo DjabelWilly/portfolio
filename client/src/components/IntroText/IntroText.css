@@ -1,0 +1,47 @@
+.intro-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: whitesmoke;
+  font-family: "Draken", sans-serif;
+  font-size: 6rem;
+  font-weight: bold;
+  letter-spacing: 1rem;
+  width: 80%;
+  height: 100vh;
+  text-transform: uppercase;
+  transition: opacity 1s ease-in-out;
+}
+
+.fade-in {
+  opacity: 1;
+}
+
+.fade-out {
+  opacity: 0;
+}
+
+@media screen and (max-width: 950px) {
+  .intro-text {
+    font-size: 5rem;
+    letter-spacing: 0.5rem;
+  }
+}
+@media screen and (max-width: 690px) {
+  .intro-text {
+    font-size: 3.5rem;
+    letter-spacing: 0.2rem;
+  }
+}
+@media screen and (max-width: 490px) {
+  .intro-text {
+    font-size: 2.5rem;
+    letter-spacing: 0.2rem;
+  }
+}
+@media screen and (max-width: 360px) {
+  .intro-text {
+    font-size: 2rem;
+    letter-spacing: 0.1rem;
+  }
+}

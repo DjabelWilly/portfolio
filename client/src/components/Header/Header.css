@@ -59,6 +59,7 @@
   list-style: none;
   gap: 1rem;
   margin: 0;
+  font-family: "Draken", sans-serif;
 }
 
 .nav-links li {

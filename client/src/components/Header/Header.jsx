@@ -64,7 +64,7 @@ const Header = ({ scrollToSection, fadeInMain }) => {
               setIsMenuOpen(false);
             }}
           >
-            À propos
+            A PROPOS
           </li>
           <li
             onClick={() => {
@@ -72,7 +72,7 @@ const Header = ({ scrollToSection, fadeInMain }) => {
               setIsMenuOpen(false);
             }}
           >
-            Projets
+            PROJETS
           </li>
           <li
             onClick={() => {
@@ -80,7 +80,7 @@ const Header = ({ scrollToSection, fadeInMain }) => {
               setIsMenuOpen(false);
             }}
           >
-            Formation
+            FORMATION
           </li>
           <li
             onClick={() => {
@@ -88,7 +88,7 @@ const Header = ({ scrollToSection, fadeInMain }) => {
               setIsMenuOpen(false);
             }}
           >
-            Contact
+            CONTACT
           </li>
         </ul>
       </nav>

@@ -34,6 +34,7 @@
   width: 60%;
   padding: 0.5rem 1.5rem;
   margin: 0;
+  margin-bottom: 1rem;
   background: rgba(255, 255, 255, 0.073);
   border-radius: 10px;
   transition: transform 0.3s ease;
@@ -76,6 +77,8 @@
 
 .project-card h3 {
   color: var(--text-primary);
+  font-weight: 500;
+  letter-spacing: 0.1rem;
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
   text-shadow: none;
@@ -106,7 +109,7 @@
   justify-content: flex-start;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-top: 1rem;
+  margin-block: 1rem;
 }
 
 .project-stack span {

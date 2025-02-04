@@ -13,6 +13,7 @@
   display: grid;
   grid-template-columns: 200px 1fr;
   margin-top: 1.5rem;
+  margin-bottom: 1rem;
   padding: 1rem;
   background: rgba(255, 255, 255, 0.073);
   border-radius: 10px;
@@ -36,14 +37,19 @@
 
 .education-content h3 {
   color: var(--text-primary);
+  text-align: center;
+  font-weight: 500;
+  font-size: 1.2rem;
   margin-bottom: 0.5rem;
+  text-shadow: none;
   margin-top: 0;
 }
 
 .education-content h4 {
+  text-align: center;
   color: var(--text-primary);
-  margin-bottom: 1rem;
   font-size: 1rem;
+  margin-block: 1rem;
 }
 
 .education-details {

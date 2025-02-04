@@ -5,36 +5,14 @@ import About from './components/About/About';
 import Projects from './components/Projects/Projects';
 import Education from './components/Education/Education';
 import Contact from './components/Contact/Contact';
+import IntroText from './components/IntroText/IntroText';
 
-// Tableau contenant les mots à afficher pendant l'intro
-const introText = ["conception", "developpement", "<web/>"];
+
 
 function App() {
-  const [index, setIndex] = useState(0);  // Suivi du mot affiché (intro)
-  const [showContent, setShowContent] = useState(false);  // Affichage du contenu principal à true
-  const [fade, setFade] = useState(true);  // Gère le fade-in/fade-out (intro)
+
+  const [showContent, setShowContent] = useState(false); // Affichage du contenu principal à true
   const [fadeInMain, setFadeInMain] = useState(false); // Gère le fade-in du contenu principal
-
-  useEffect(() => {
-    if (index < introText.length) {
-      const handleNextWord = () => { // Fonction pour passer au mot suivant
-        setIndex(prevIndex => prevIndex + 1);
-        setFade(true); // Activer le fade-in
-      };
-
-      const fadeOutTimeout = setTimeout(() => { // Fade-out apres 1s
-        setFade(false);
-      }, 1000);
-
-      const nextWordTimeout = setTimeout(handleNextWord, 2500); // Passer au mot suivant apres 2.5s
-
-      return () => {
-        clearTimeout(fadeOutTimeout); // Nettoyage des timeouts
-        clearTimeout(nextWordTimeout);
-      };
-    }
-    setShowContent(true); // Affichage du contenu principal
-  }, [index]); // Dependance sur l'index
 
   // Déclencher le fade-in du contenu principal après un court délai
   useEffect(() => {
@@ -46,7 +24,6 @@ function App() {
       return () => clearTimeout(fadeInTimeout);
     }
   }, [showContent]);
-
 
   // Fonction pour faire défiler la page vers une section spécifiée.
   const scrollToSection = (sectionId) => {
@@ -63,10 +40,7 @@ function App() {
 
   return (
     <div className="App">
-      {!showContent ? (
-        <div className={`intro-text ${fade ? "fade-in" : "fade-out"}`}>
-          {introText[index]}
-        </div>
+      {!showContent ? (<IntroText setFadeInMain={setFadeInMain} setShowContent={setShowContent} />
       ) : (
         <>
           <Header scrollToSection={scrollToSection} fadeInMain={fadeInMain} />
