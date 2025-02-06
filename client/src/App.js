@@ -5,8 +5,7 @@ import About from './components/About/About';
 import Projects from './components/Projects/Projects';
 import Education from './components/Education/Education';
 import Contact from './components/Contact/Contact';
-import IntroText from './components/IntroText/IntroText';
-
+import Intro from './components/Intro/Intro';
 
 
 function App() {
@@ -40,7 +39,7 @@ function App() {
 
   return (
     <div className="App">
-      {!showContent ? (<IntroText setFadeInMain={setFadeInMain} setShowContent={setShowContent} />
+      {!showContent ? (<Intro setFadeInMain={setFadeInMain} setShowContent={setShowContent} />
       ) : (
         <>
           <Header scrollToSection={scrollToSection} fadeInMain={fadeInMain} />

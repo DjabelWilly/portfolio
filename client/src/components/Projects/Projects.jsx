@@ -1,13 +1,37 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Projects.css";
 
 const Projects = () => {
+  const [cardVisible, setCardVisible] = useState(false);
+
+  useEffect(() => {
+    /**
+     * Fonction qui détecte la position de la barre de défilement et
+     * active la visibilité des éléments de la grille des projets
+     * lorsque le scroll est supérieur à 400px.
+     * L'écouteur est supprimé une fois la visibilité activée.
+     */
+    const scrollPosition = () => {
+      if (window.scrollY > 400) {
+        setCardVisible(true);
+        window.removeEventListener("scroll", scrollPosition); // Supprime l'écouteur après activation
+      }
+    };
+
+    window.addEventListener("scroll", scrollPosition);
+
+    return () => {
+      window.removeEventListener("scroll", scrollPosition);
+    };
+  }, []); // exécute le useEffect seulement au premier rendu
+
   return (
     <div className="projects-container">
       <h2>PROJETS</h2>
       <div className="projects-grid">
+        {/* Projet 1  */}
         <div
-          className="project-card"
+          className={`project-card ${cardVisible ? "visible" : ""}`}
           onClick={() =>
             window.open("https://video-games-frontend.vercel.app", "_blank")
           }
@@ -42,8 +66,9 @@ const Projects = () => {
           </div>
         </div>
 
+        {/* Projet 2  */}
         <div
-          className="project-card"
+          className={`project-card ${cardVisible ? "visible" : ""}`}
           onClick={() => window.open("https://nearby-mtp.vercel.app", "_blank")}
           style={{ cursor: "pointer" }}
         >
@@ -85,8 +110,9 @@ const Projects = () => {
           </div>
         </div>
 
+        {/* Projet 3  */}
         <div
-          className="project-card"
+          className={`project-card ${cardVisible ? "visible" : ""}`}
           onClick={() => window.open("https://aurora-wd.vercel.app", "_blank")}
           style={{ cursor: "pointer" }}
         >
