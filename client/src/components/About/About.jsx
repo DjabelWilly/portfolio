@@ -1,13 +1,13 @@
 import React from "react";
 import "./About.css";
-import profile from "../../assets/img/profile.jpg";
+import profil from "../../assets/img/profile.jpg";
 
 const About = ({ scrollToSection }) => {
   return (
     <div className="about-container">
       <div className="about-content">
         <div className="about-container-text-img">
-          <img src={profile} alt="profile" className="about-image" />
+          <img src={profil} alt="profile" className="about-image" />
           <p className="about-description">
             Hello ! Je suis Willy Djabelkhir,{" "}
             <strong>DÉVELOPPEUR WEB FULLSTACK.</strong> <br />

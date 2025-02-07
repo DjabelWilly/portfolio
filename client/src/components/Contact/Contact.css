@@ -56,6 +56,12 @@
   justify-content: center;
 }
 
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--text-primary);
+  opacity: 0.7;
+}
+
 .contact-form form {
   width: 100%;
   display: flex;
