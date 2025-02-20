@@ -35,7 +35,7 @@
 }
 @media (max-width: 800px) {
   .about-image {
-    margin-top: 4rem;
+    margin-top: 2rem;
     width: 150px;
     height: 150px;
     border-radius: 50%;

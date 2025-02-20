@@ -45,7 +45,8 @@ body {
 section {
   min-height: 100vh;
   padding: 0;
-  margin-top: 2rem;
+  /* margin-top: 2rem; */
+  padding-top: 2rem;
   width: 100%;
   margin: 0;
   display: flex;
@@ -89,7 +90,7 @@ section h2 {
 
 #contact {
   background-color: var(--dark-bg);
-  min-height: calc(100vh - 62px);
+  min-height: calc(100vh - 93px);
   background-image: url("./assets/img/contact-bg.jpg");
   background-size: cover;
   background-position: center;
