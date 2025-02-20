@@ -7,7 +7,7 @@ const About = ({ scrollToSection }) => {
     <div className="about-container">
       <div className="about-content">
         <div className="about-container-text-img">
-          <img src={profil} alt="profile" className="about-image" />
+          <img src={profil} alt="profil" className="about-image" />
           <p className="about-description">
             Hello ! Je suis Willy Djabelkhir,{" "}
             <strong>DÉVELOPPEUR WEB FULLSTACK.</strong> <br />

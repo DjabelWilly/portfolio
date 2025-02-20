@@ -42,19 +42,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.main-content {
-  padding-top: 60px;
-  width: 100%;
-  opacity: 0;
-  transform: translateY(10px);
-  transition: opacity 2s ease-in-out, transform 1.5s ease-in-out;
-}
-
-.main-content.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 section {
   min-height: 100vh;
   padding: 0;

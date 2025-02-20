@@ -7,12 +7,7 @@
   z-index: 1000;
   display: flex;
   justify-content: center;
-  opacity: 0;
   transition: opacity 1.5s ease-in-out;
-}
-
-.header.show {
-  opacity: 1;
 }
 
 .nav {
@@ -37,11 +32,6 @@
 
 .logo img {
   width: 80px;
-}
-@media screen and (max-width: 780px) {
-  .logo img {
-    width: 60px;
-  }
 }
 
 .logo p {
