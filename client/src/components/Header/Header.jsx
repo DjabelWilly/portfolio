@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import "./Header.css";
 import logo from "../../assets/img/logo.png";
+import useDelayedVisibility from "../../hooks/useDelayedVisibility"; // custom hook
 
 const Header = ({ scrollToSection }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false); // State pour le menu hamburger
+  const showHeader = useDelayedVisibility(false, 1200); // Affiche Header après 0.5s
 
   return (
-    <header className="header">
+    // Ajout de la classe "visible" au header lorsque showHeader est true
+    <header className={`header ${showHeader ? "visible" : ""}`}>
       <nav className="nav">
         <div className="logo">
           <img

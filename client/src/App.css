@@ -46,7 +46,7 @@ section {
   min-height: 100vh;
   padding: 0;
   /* margin-top: 2rem; */
-  padding-top: 2rem;
+  padding-block: 2rem;
   width: 100%;
   margin: 0;
   display: flex;
@@ -61,7 +61,7 @@ section h2 {
   color: var(--neon-primary);
   text-shadow: 0 0 10px var(--neon-primary);
   margin-bottom: 1rem;
-  margin-top: 2rem;
+  /* margin-top: 1rem; */
 }
 
 #about {
@@ -90,7 +90,7 @@ section h2 {
 
 #contact {
   background-color: var(--dark-bg);
-  min-height: calc(100vh - 93px);
+  min-height: 80vh;
   background-image: url("./assets/img/contact-bg.jpg");
   background-size: cover;
   background-position: center;

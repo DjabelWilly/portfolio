@@ -1,13 +1,19 @@
 .header {
   position: fixed;
-  top: 0;
+  top: -100vh;
   left: 0;
   right: 0;
   background-color: rgb(0, 0, 0);
   z-index: 1000;
   display: flex;
   justify-content: center;
-  transition: opacity 1.5s ease-in-out;
+  transition: top 1.8s ease;
+  opacity: 0;
+}
+
+.header.visible {
+  top: 0;
+  opacity: 1;
 }
 
 .nav {
