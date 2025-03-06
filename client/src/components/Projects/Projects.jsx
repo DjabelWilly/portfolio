@@ -78,7 +78,7 @@ const Projects = () => {
           }
           style={{ cursor: "pointer" }}
         >
-          <h3>Nearby MTP</h3>
+          <h3>Movie Finder</h3>
           <p className="project-description">
             Cette application permet aux utilisateurs de rechercher des films en
             récupérant des données via une API externe. Elle utilise l'API OMDb
