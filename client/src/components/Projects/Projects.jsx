@@ -70,17 +70,21 @@ const Projects = () => {
         {/* Projet 2  */}
         <div
           className={`project-card ${cardVisible ? "visible" : ""}`}
-          onClick={() => window.open("https://nearby-mtp.vercel.app", "_blank")}
+          onClick={() =>
+            window.open(
+              "https://movie-finder-frontend-three.vercel.app",
+              "_blank"
+            )
+          }
           style={{ cursor: "pointer" }}
         >
           <h3>Nearby MTP</h3>
           <p className="project-description">
-            Cette application permet aux utilisateurs de rechercher des lieux et
-            des activités à Montpellier et ses alentours. Elle utilise l'API
-            Google Places pour récupérer les résultats de recherche et les
-            afficher sur une carte. Les utilisateurs peuvent filtrer les
-            résultats par activité et par rayon et afficher des informations
-            détaillées sur chaque lieu.
+            Cette application permet aux utilisateurs de rechercher des films en
+            récupérant des données via une API externe. Elle utilise l'API OMDb
+            pour afficher les résultats de recherche. Les utilisateurs peuvent
+            obtenir des informations détaillées sur chaque film en cliquant sur
+            dessus.
           </p>
           <div className="project-stack">
             <span>
@@ -93,10 +97,7 @@ const Projects = () => {
               <i className="fab fa-react"></i> React
             </span>
             <span>
-              <i className="fas fa-exchange-alt"></i> Axios
-            </span>
-            <span>
-              <i className="fab fa-google"></i> Google API
+              <i className="fab fa-google"></i> OMDb API
             </span>
             <span>
               <svg
