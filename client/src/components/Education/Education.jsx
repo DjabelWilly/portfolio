@@ -33,17 +33,23 @@ const Education = () => {
         >
           <div className="education-date">Nov. 2023 - Juin 2024</div>
           <div className="education-content">
-            <h3>DÉVELOPPEUR WEB & WEB MOBILE | RNCP NIV.5 BAC+2</h3>
+            <h3>DÉVELOPPEUR WEB & WEB MOBILE | BAC+2</h3>
             <h4>DIGINAMIC | MONTPELLIER</h4>
             <ul className="education-details">
-              <li>Maquettage d'interfaces utilisateur web (Figma)</li>
               <li>
-                Développement frontend (HTML, CSS, Bootstrap, Tailwind,
-                Javascript, React)
+                Conception d’interfaces utilisateur : analyse des besoins,
+                maquettes, prototypes (Figma)
               </li>
-              <li>Développement backend (PHP, Symfony)</li>
-              <li>Conception de bases de données relationnelles (MySQL)</li>
-              <li>Conception de bases de données NoSQL (MongoDB)</li>
+              <li>
+                Développement frontend : HTML, CSS, Bootstrap, Tailwind,
+                JavaScript, React.js
+              </li>
+              <li>Développement backend : Node.js, Express</li>
+              <li>
+                Programmation Orientée Objet, Intégration d’API, Tests unitaires
+              </li>
+              <li>Conception de bases de données : MySQL, MongoDB</li>
+              <li>Travail en équipe projet : Git, Github, Agile SCRUM</li>
             </ul>
           </div>
         </div>
@@ -55,11 +61,11 @@ const Education = () => {
           <div className="education-content">
             <h3>AUTOFORMATION</h3>
             <ul className="education-details">
-              <li>Développement backend (Node.js, Express.js)</li>
-              <li>Google API</li>
-              <li>Tests unitaires (Jest)</li>
-              <li>Développement Fullstack (Next)</li>
-              <li>Déploiement d'une application fullstack (Vercel)</li>
+              <li>Google Maps API</li>
+              <li>Tests unitaires : Jest</li>
+              <li>Développement Fullstack : React.js, Next.js</li>
+              <li>Déploiement d'une application fullstack : Vercel</li>
+              <li>CI/CD : Github + Vercel</li>
             </ul>
           </div>
         </div>

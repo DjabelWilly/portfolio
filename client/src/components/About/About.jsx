@@ -14,21 +14,26 @@ const About = ({ scrollToSection }) => {
         >
           <img src={profil} alt="profil" className="about-image" />
           <p className="about-description">
-            Hello ! Je suis Willy Djabelkhir,{" "}
+            Hello, je suis Willy Djabelkhir,{" "}
             <strong>DÉVELOPPEUR WEB FULLSTACK.</strong> <br />
-            Fort d'une expérience en tant que technicien dans l'aérospatiale,
-            l'électronique et la robotique, j'ai acquis des compétences clés
+            Je conçois et développe des applications web dynamiques et
+            ergonomiques. Du simple site vitrine à l'application sur mesure
+            complexe, j'aime créer des solutions innovantes centrées sur
+            l'utilisateur.
+            <br />
+            Passionné par l'informatique et la technologie, j'ai choisi d'en
+            faire mon métier en 2023 en suivant une formation de
+            <strong> DÉVELOPPEUR WEB</strong>. <br />
+            Auparavant, j'étais technicien dans l'industrie de l'électronique,
+            l'aérospatiale, et la robotique, où j'ai acquis des compétences clés
             telles que la rigueur, l'analyse, la résolution de problèmes
             complexes, ainsi que le travail en équipe. <br />
-            Ma passion pour les nouvelles technologies m'a logiquement conduit
-            vers une formation de <strong> DÉVELOPPEUR WEB</strong>, où j'ai
-            acquis des bases solides dans la création de sites web, landing
-            pages, e-commerce et développement applicatif selon les besoins du
-            client.
-            <br />
             Aujourd'hui, je suis en quête de nouvelles opportunités, prêt à
             relever des défis avec une volonté constante d'apprendre et
-            d'innover.
+            d'innover. <br />
+            Je possède des bases solides dans la création de sites web,
+            e-commerce et développement applicatif, en m'adaptant aux besoins
+            spécifiques du client.
           </p>
         </div>
         <div className="about-btn-container">
