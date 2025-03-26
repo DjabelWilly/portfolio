@@ -3,6 +3,15 @@ import "./About.css";
 import profil from "../../assets/img/profile.jpg";
 import useDelayedVisibility from "../../hooks/useDelayedVisibility"; // custom hook
 
+/**
+ * Component affichant une page "About" avec un bouton pour
+ * aller sur la page des projets et un lien vers la page de
+ * contact.
+ *
+ * @param {function} scrollToSection - fonction permettant de
+ *        scroller vers une section donnée
+ * @returns {JSX.Element} - élément JSX du composant
+ */
 const About = ({ scrollToSection }) => {
   const showAbout = useDelayedVisibility(false, 1000); // Affiche About après 1s
 

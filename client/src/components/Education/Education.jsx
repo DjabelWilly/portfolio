@@ -1,6 +1,17 @@
 import React, { useState, useEffect } from "react";
 import "./Education.css";
 
+/**
+ * Composant Education
+ *
+ * Ce composant affiche les formations suivies par l'auteur.
+ * Il utilise l'hook d'état useState pour gérer la visibilité des éléments
+ * de la formation.
+ * L'hook useEffect est utilisé pour ajouter un écouteur d'événement
+ * "scroll" sur la fenêtre. Lorsque le scroll est supérieur à 1200px,
+ * la visibilité des éléments est activée.
+ * L'écouteur est supprimé une fois la visibilité activée.
+ */
 const Education = () => {
   const [educationitemVisible, setEducationItemVisible] = useState(false);
 
