@@ -44,11 +44,10 @@ body {
 
 section {
   min-height: 100vh;
+  margin: 0;
   padding: 0;
-  /* margin-top: 2rem; */
   padding-block: 2rem;
   width: 100%;
-  margin: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -60,8 +59,7 @@ section h2 {
   font-family: "Draken", sans-serif;
   color: var(--neon-primary);
   text-shadow: 0 0 10px var(--neon-primary);
-  margin-bottom: 1rem;
-  /* margin-top: 1rem; */
+  margin-top: 1rem;
 }
 
 #about {
@@ -90,7 +88,7 @@ section h2 {
 
 #contact {
   background-color: var(--dark-bg);
-  min-height: 80vh;
+  min-height: 85vh;
   background-image: url("./assets/img/contact-bg.jpg");
   background-size: cover;
   background-position: center;

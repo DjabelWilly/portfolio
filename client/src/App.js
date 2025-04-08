@@ -11,7 +11,7 @@ function App() {
   // Fonction pour faire défiler la page vers une section spécifiée.
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
-    const headerOffset = 60;
+    const headerOffset = 35;
     const elementPosition = element.getBoundingClientRect().top;
     const offsetPosition = elementPosition + window.scrollY - headerOffset;
 

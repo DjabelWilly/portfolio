@@ -43,8 +43,8 @@ const Projects = () => {
         >
           <h3>Video Games Sales Dashboard</h3>
           <p className="project-description">
-            Cette application est un outil de monitoring des ventes d'un
-            commerce de jeux video.
+            Application desktop de monitoring des ventes d'un commerce de jeux
+            video.
             <br /> Elle permet de suivre et d'analyser les ventes par région, de
             visualiser les données, d'ajouter de nouvelles données, de modifier
             et de supprimer les données existantes.
